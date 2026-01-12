@@ -13,6 +13,14 @@
 			content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: blob:"
 		/>
 		<title>リアルタイム地震ビューアー(改造版) v1.6.3-8-8</title>
+		<script>
+			if ('serviceWorker' in navigator) {
+  				navigator.serviceWorker.getRegistrations().then(regs => {
+    				regs.forEach(reg => reg.unregister());
+  				});
+			}
+		</script>
+
 		<style>
 			body {
 				color: #ffffff;

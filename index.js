@@ -63075,18 +63075,4 @@ User agent: ` + navigator.userAgent,
 init({
     cwsp: WebSocketProvider
 });
-const registServiceWorker = async () => {
-    if ("serviceWorker"in navigator)
-        try {
-            const N = await (await fetch("./hash")).text();
-            console.log(`Version hash: ${N}`),
-            await navigator.serviceWorker.register("./sw.js"),
-            console.log("Registered service worker")
-        } catch (w) {
-            console.warn("Failed to register service worker"),
-            console.warn(w)
-        }
-}
-;
-registServiceWorker();
 run().catch(handleError);
