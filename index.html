@@ -19,8 +19,11 @@
     				regs.forEach(reg => reg.unregister());
   				});
 			}
+			const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+			if ('serviceWorker' in navigator && !isiOS) {
+  				navigator.serviceWorker.register('/sw.js');
+			}
 		</script>
-
 		<style>
 			body {
 				color: #ffffff;
